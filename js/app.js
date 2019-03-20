@@ -117,17 +117,45 @@ async function submit(){
 
   await sleep(ms);
 
-  if(globals.hiddenInputValue.length == 0){
+  if(!escape(globals.hiddenInputValue)){
 
-    answer(globals.noIndulgenceResponse);
+    if(globals.hiddenInputValue.length == 0){
+
+      answer(globals.noIndulgenceResponse);
+  
+    }else{
+      
+      answer(globals.answer);
+    
+    }
 
   }else{
-    
-    answer(globals.answer);
-  
+
+    var messages = escapeMessages[globals.hiddenInputValue];
+
+    answer(messages[randomize(messages.length)]);
+
   }
   
   initLucifer();
+
+}
+
+function escape(keyword){
+
+  var resp;
+
+  if(keyword in escapeMessages){
+
+    resp = true;
+
+  }else{
+
+    resp = false;
+
+  }
+
+  return resp;
 
 }
 
@@ -159,7 +187,7 @@ function initLucifer(){
 
   globals.counter = 0;
 
-  $('#questionInput').val("");
+  $('#questionInput').val('');
 
   $('#loader').addClass('hidden');
 
