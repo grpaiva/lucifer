@@ -1,4 +1,6 @@
-var indulgences = [
+const triggerKey = ';';
+
+const indulgences = [
   "Poderoso chefão das trevas",
   "Grande conhecedor de todo universo",
   "Supremo oráculo do mundo",
@@ -6,7 +8,7 @@ var indulgences = [
   "Ó força suprema do mal"
 ];
 
-var noIndulgenceResponses = [
+const noIndulgenceMessages = [
   "Vai brincando, vai",
   "Não sei do que você está falando",
   "Ahn?",
@@ -16,7 +18,7 @@ var noIndulgenceResponses = [
   "Sem elogio não respondo"
 ];
 
-var escapeMessages = {
+const escapeMessages = {
   future: [
     "Não consigo prever o futuro",
     "Isso ainda não aconteceu!",
@@ -30,4 +32,4 @@ var escapeMessages = {
     "Você é um fanfarrão!",
     "Babaca."
   ]
-}
+};

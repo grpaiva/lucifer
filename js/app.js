@@ -75,7 +75,7 @@ $(document).ready(function(){
           
           break;
 
-        case ';':
+        case triggerKey:
 
           e.preventDefault();
 
@@ -171,9 +171,9 @@ function initLucifer(){
 
   var indulgence = indulgences[rand];
 
-  var rand2 = randomize(noIndulgenceResponses.length);
+  var rand2 = randomize(noIndulgenceMessages.length);
 
-  globals.noIndulgenceResponse = noIndulgenceResponses[rand2];
+  globals.noIndulgenceResponse = noIndulgenceMessages[rand2];
 
   globals.indulgenceChars = indulgence.split('');
 
