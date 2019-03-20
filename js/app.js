@@ -109,9 +109,13 @@ function handleEnterKey(e){
 
 }
 
-function submit(){
+async function submit(){
 
-  await sleep(2000);
+  $('#loader').removeClass('hidden');
+
+  var ms = randomize(3000);
+
+  await sleep(ms);
 
   if(globals.hiddenInputValue.length == 0){
 
@@ -127,13 +131,19 @@ function submit(){
 
 }
 
+function randomize(max){
+
+  return Math.floor(Math.random() * max);
+
+}
+
 function initLucifer(){
 
-  var rand = Math.floor(Math.random() * indulgences.length);
+  var rand = randomize(indulgences.length);
 
   var indulgence = indulgences[rand];
 
-  var rand2 = Math.floor(Math.random() * noIndulgenceResponses.length);
+  var rand2 = randomize(noIndulgenceResponses.length);
 
   globals.noIndulgenceResponse = noIndulgenceResponses[rand2];
 
@@ -150,6 +160,8 @@ function initLucifer(){
   globals.counter = 0;
 
   $('#questionInput').val("");
+
+  $('#loader').addClass('hidden');
 
 }
 
