@@ -21,7 +21,7 @@
     
     <div class="container">
       
-      <a href="#" class="navbar-brand">Lucifer</a>
+      <a href="#" class="navbar-brand appName"></a>
       
       <button 
         class="navbar-toggler" 
@@ -49,19 +49,19 @@
   <div class="container mt-5 pt-5">
     <div class="row">
       <div class="col-sm">
-        <h1>Lucifer</h1>
-        <p class="lead">Pergunte ao oráculo</p>
+        <h1 class="appName"></h1>
+        <p id="subtitle" class="lead"></p>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-6 mt-3">
         <form>
           <div class="form-group">
-            <input type="text" class="form-control" id="questionInput" placeholder="Primeiro um elogio, depois a pergunta...">
+            <input type="text" class="form-control" id="questionInput">
           </div>
           <div id="alert" class="alert alert-danger hidden" role="alert"></div>
-          <button id="submitButton" type="button" class="btn btn-danger btn-lg mt-3">Tente a sorte</button>
-          <p class="small text-muted mt-2">Ou, se for corajoso, aperte [ enter ]</p>
+          <button id="submitButton" type="button" class="btn btn-danger btn-lg mt-3"></button>
+          <p id="muted" class="small text-muted mt-2"></p>
         </form>
       </div>
 

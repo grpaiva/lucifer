@@ -1,6 +1,9 @@
 var globals = [];
+var voices;
 
 $(document).ready(function(){
+
+  fillContent();
 
   $('#questionInput').focus();
   
@@ -36,7 +39,7 @@ $(document).ready(function(){
           
           break;
   
-        case ';':
+        case configs.triggerKey:
   
           if(globals.switcher){
   
@@ -75,7 +78,7 @@ $(document).ready(function(){
           
           break;
 
-        case triggerKey:
+        case configs.triggerKey:
 
           e.preventDefault();
 
@@ -100,6 +103,22 @@ $(document).ready(function(){
   });
 
 });
+
+function fillContent(){
+
+  $('.appName').each(function(){
+    
+    $(this).text(copy.appName);
+  
+  });
+  
+  $('#submitButton').text(copy.submitButton);
+  
+  $('#muted').text(copy.muted);
+  
+  $('#questionInput').attr("placeholder", copy.inputPlaceholder);
+
+}
 
 function handleEnterKey(e){
   
@@ -167,13 +186,13 @@ function randomize(max){
 
 function initLucifer(){
 
-  var rand = randomize(indulgences.length);
+  var rand = randomize(praises.length);
 
-  var indulgence = indulgences[rand];
+  var indulgence = praises[rand];
 
-  var rand2 = randomize(noIndulgenceMessages.length);
+  var rand2 = randomize(noPraiseMessages.length);
 
-  globals.noIndulgenceResponse = noIndulgenceMessages[rand2];
+  globals.noIndulgenceResponse = noPraiseMessages[rand2];
 
   globals.indulgenceChars = indulgence.split('');
 
@@ -197,9 +216,14 @@ async function answer(content){
 
   if(content != 'clear'){
 
-    $('#alert').text(content);
+    if(configs.voiceResponse){
+      say(content);
+    }
 
-    $('#alert').removeClass('hidden');
+    if(configs.textResponse){
+      $('#alert').text(content);
+      $('#alert').removeClass('hidden');
+    }
   
   }else{
 
@@ -214,3 +238,23 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 
 }
+
+function say(m) {
+
+  var voiceCode = configs.lang == 'pt-BR' ? 22 : 32;
+  var msg = new SpeechSynthesisUtterance();
+  msg.voice = voices[voiceCode];
+  msg.voiceURI = "native";
+  msg.volume = 1;
+  msg.rate = 0.7;
+  msg.pitch = 0;
+  msg.text = m;
+  msg.lang = configs.lang;
+  speechSynthesis.speak(msg);
+}
+
+window.speechSynthesis.onvoiceschanged = function() {
+  
+  voices = window.speechSynthesis.getVoices();
+
+};
