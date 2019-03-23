@@ -1,7 +1,7 @@
 const configs = {
   lang: 'en-US',
   triggerKey: ';',
-  textResponse: false,
+  textResponse: true,
   voiceResponse: true,
 };
 

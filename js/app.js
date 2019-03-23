@@ -10,7 +10,9 @@ $(document).ready(function(){
   initLucifer();
 
   $('#questionInput').focus(function(){
+    
     answer('clear');
+  
   });
 
   $('#questionInput').keydown(function(e){

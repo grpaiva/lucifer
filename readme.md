@@ -13,7 +13,7 @@ I know, it's not like it's a new prank. But I wanted to build this as an exercis
 Well...just run:
 
 ```bash
-git clone https://github.com/grpaiva/lucifer-vanilla.git
+git clone https://github.com/grpaiva/lucifer.git
 ```
 
 And then open index.html with ~~Chrome~~ your prefered browser.
@@ -26,8 +26,11 @@ And then open index.html with ~~Chrome~~ your prefered browser.
 In this file we set up all important variables such as the trigger key, praises array, custom messages etc.
 
 The configs constant holds all configuration:
+
 `lang` is the main language
+
 `triggerKey` you can choose the key that switches on/off the stealth answer typing mode
+
 `textResponse/voiceResponse` either you want the response to be text or voice based (or both)
 
 ### Praises
